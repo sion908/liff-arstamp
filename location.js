@@ -21,6 +21,9 @@ function successCallback(position) {
     gl_text += "目的地との誤差：" + dist + "<br>";
     gl_text += "圏内にいるか：" + (dist < accuracy) + "<br>";
   document.getElementById("show_result").innerHTML = gl_text;
+  if(dist<accuracy){
+    sendMessages("text")
+  }
 }
 
 const R = Math.PI / 180;
