@@ -43,6 +43,19 @@ function sendMessages(text) {
     });
 }
 
+function sendpostbackMessages(text) {
+    liff.sendMessages([{
+        "type":"postback",
+        "label":'label',
+        "data": 'senddata',
+        "text": 'applytext'
+      }]).then(function () {
+        liff.closeWindow();
+    }).catch(function (error) {
+        window.alert('Failed to send message ' + error);
+    });
+}
+
 // Webブラウザからメッセージ送信
 function shareTargetPicker(text) {
     liff.shareTargetPicker([{

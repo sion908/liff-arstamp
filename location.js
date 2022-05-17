@@ -31,7 +31,7 @@ function successCallback(position) {
     gl_text += "圏内にいるか：" + (dist < accuracy) + "<br>";
   document.getElementById("show_result").innerHTML = gl_text;
   if(dist<accuracy){
-    sendMessages("text")
+    sendpostbackMessages("nowon"+dict.place)
   }
 }
 
