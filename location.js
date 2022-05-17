@@ -14,7 +14,7 @@ function getGeo(){
 
 function successCallback(position) {
   var dict = convParamToObj()
-  var desti = place[dict.palce]
+  var desti = place[dict.place]
   var nlan = position.coords.latitude;
   var nlng = position.coords.longitude;
   var accuracy = (position.coords.accuracy > 50 ? position.coords.accuracy : 50);
