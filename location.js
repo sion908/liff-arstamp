@@ -7,10 +7,12 @@ function getGeo(){
 }
 
 function successCallback(position) {
+  var dict = convParamToObj()
+  var desti = palce[dict.palce]
   var nlan = position.coords.latitude;
   var nlng = position.coords.longitude;
   var accuracy = (position.coords.accuracy > 50 ? position.coords.accuracy : 50);
-  var dist = distance(nlan,nlng,32.73834987305667, 129.8728843611234);
+  var dist = distance(nlan,nlng,desti.lan,desti.lng);
   var gl_text = "緯度：" + nlan + "<br>";
     gl_text += "経度：" + nlng + "<br>";
     gl_text += "高度：" + position.coords.altitude + "<br>";
@@ -24,6 +26,14 @@ function successCallback(position) {
   if(dist<accuracy){
     sendMessages("text")
   }
+}
+
+function convParamToObj() {
+  var search = location.search.substring(1);
+  if (search) {
+    return JSON.parse('{"' + decodeURI(search.replace(/&/g, "\",\"").replace(/=/g, "\":\"")) + '"}')
+  }
+  return {};
 }
 
 const R = Math.PI / 180;
@@ -53,4 +63,11 @@ function errorCallback(error) {
   }
   document.getElementById("show_result").innerHTML = err_msg;
   //デバッグ用→　document.getElementById("show_result").innerHTML = error.message;
+}
+
+const palce = {
+  1:{lan:32.73834987305667, lng:129.8728843611234},
+  2:{lan:32.73393839225796, lng:129.87036199308952},
+  3:{lan:32.72964239045388, lng:129.86909062534943},
+  4:{lan:32.74620641316701, lng:129.87078302241486}
 }
