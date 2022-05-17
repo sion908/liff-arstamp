@@ -1,8 +1,10 @@
-if (navigator.geolocation) {
-  watchPosition()
-  navigator.geolocation.watchPosition(successCallback, errorCallback);
-} else {
-  //Geolocation APIを利用できない環境向けの処理
+function getGeo(){
+  if (navigator.geolocation) {
+    watchPosition()
+    navigator.geolocation.watchPosition(successCallback, errorCallback);
+  } else {
+    //Geolocation APIを利用できない環境向けの処理
+  }
 }
 
 function successCallback(position) {

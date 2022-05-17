@@ -16,6 +16,7 @@ function initializeLiff(liffId) {
                 window.alert("LINEアカウントにログインしてください。");
                 liff.login({redirectUri: location.href});
             }
+            getGeo()
         })
         .catch((err) => {
             console.log('LIFF Initialization failed ', err);
