@@ -8,7 +8,7 @@ function getGeo(){
 
 function successCallback(position) {
   var dict = convParamToObj()
-  var desti = palce[dict.palce]
+  var desti = place[dict.palce]
   var nlan = position.coords.latitude;
   var nlng = position.coords.longitude;
   var accuracy = (position.coords.accuracy > 50 ? position.coords.accuracy : 50);
@@ -65,7 +65,7 @@ function errorCallback(error) {
   //デバッグ用→　document.getElementById("show_result").innerHTML = error.message;
 }
 
-const palce = {
+const place = {
   '1':{lan:32.73834987305667, lng:129.8728843611234},
   '2':{lan:32.73393839225796, lng:129.87036199308952},
   '3':{lan:32.72964239045388, lng:129.86909062534943},
