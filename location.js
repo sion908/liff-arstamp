@@ -1,3 +1,9 @@
+const place = {
+  '1':{lan:32.73834987305667, lng:129.8728843611234},
+  '2':{lan:32.73393839225796, lng:129.87036199308952},
+  '3':{lan:32.72964239045388, lng:129.86909062534943},
+  '4':{lan:32.74620641316701, lng:129.87078302241486}
+}
 function getGeo(){
   if (navigator.geolocation) {
     navigator.geolocation.watchPosition(successCallback, errorCallback);
@@ -63,11 +69,4 @@ function errorCallback(error) {
   }
   document.getElementById("show_result").innerHTML = err_msg;
   //デバッグ用→　document.getElementById("show_result").innerHTML = error.message;
-}
-
-const place = {
-  '1':{lan:32.73834987305667, lng:129.8728843611234},
-  '2':{lan:32.73393839225796, lng:129.87036199308952},
-  '3':{lan:32.72964239045388, lng:129.86909062534943},
-  '4':{lan:32.74620641316701, lng:129.87078302241486}
 }
